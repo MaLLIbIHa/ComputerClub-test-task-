@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(ComputerClub)
 
-set(SRC_LIST driver.cpp)
+set(SRC_LIST computerClub.cpp)
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
