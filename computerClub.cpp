@@ -24,14 +24,12 @@ int main(int argc, char** argv) {
     std::cout << err.getLineNumber() << std::endl;
     return 1;
   }
-
-  std::cout << workingTime.begin.to_str() << '\n';
-
+  
   parser.setTablesCount(tablesCount);
-  EventHandler eventHandler(workingTime, costPerHour, tablesCount);
-  bool createdLeave = false;
+
+  std::vector<Event> events;
   std::string line;
-  while (std::getline(input, line)) {
+  while(std::getline(input, line)) {
     Event event;
     try {
       event = parser.parseEvent(line);
@@ -39,6 +37,14 @@ int main(int argc, char** argv) {
       std::cout << err.getLineNumber() << std::endl;
       return 1;
     }
+    events.push_back(event);
+  }
+
+  std::cout << workingTime.begin.to_str() << '\n';
+
+  EventHandler eventHandler(workingTime, costPerHour, tablesCount);
+  bool createdLeave = false;
+  for (auto&& event : events) {
     if (!createdLeave && event.time > workingTime.end) {
       eventHandler.createLeaveEventForAllClients();
       createdLeave = true;
