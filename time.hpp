@@ -14,7 +14,7 @@ public:
     }
   }
 
-  std::string to_str() const {
+  std::string toStr() const {
     std::stringstream str;
     str.fill('0');
     str << std::setw(2) << hour_ << ':' << std::setw(2) << minute_;

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "eventHandler.hpp"
 #include "parser.hpp"
+#include "computerClub.hpp"
 
 int main(int argc, char** argv) {
   if (argc < 2) {
@@ -40,23 +40,17 @@ int main(int argc, char** argv) {
     events.push_back(event);
   }
 
-  std::cout << workingTime.begin.to_str() << '\n';
+  std::cout << workingTime.begin.toStr() << '\n';
 
-  EventHandler eventHandler(workingTime, costPerHour, tablesCount);
+  ComputerClub computerClub(workingTime, tablesCount, costPerHour);
   bool createdLeave = false;
   for (auto&& event : events) {
-    if (!createdLeave && event.time > workingTime.end) {
-      eventHandler.createLeaveEventForAllClients();
-      createdLeave = true;
-    }
-    eventHandler.handleEvent(event);
+    computerClub.handleEvent(event);
   }
+  computerClub.handleEvent({"", Time(), Events::EndOfEvents, 0});
 
-  if (!createdLeave) {
-    eventHandler.createLeaveEventForAllClients();
-  }
-  std::cout << workingTime.end.to_str() << '\n';
-  eventHandler.printTablesInfo();
+  std::cout << workingTime.end.toStr() << '\n';
+  computerClub.printTablesInfo();
 
   return 0;
 }

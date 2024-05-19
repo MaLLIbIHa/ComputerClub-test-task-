@@ -11,6 +11,8 @@ enum class Events {
   OutClientLeft = 11,
   OutClientSatDown,
   OutError,
+  //final event
+  EndOfEvents,
 };
 
 struct Event final {
