@@ -1,0 +1,35 @@
+09:00
+09:41 1 client1
+09:48 1 client2
+09:51 1 client3
+09:52 3 client1
+09:52 13 ICanWaitNoLonger!
+09:54 2 client1 1
+10:25 2 client2 2
+10:30 2 client3 3
+10:32 2 client3 2
+10:32 13 PlaceIsBusy
+10:50 1 client4
+10:55 3 client4
+11:00 4 client22
+11:00 13 ClientUnknown
+12:00 1 client5
+12:30 1 client6
+12:35 1 client7
+12:37 3 client7
+12:37 11 client7
+13:00 4 client1
+13:00 12 client4 1
+14:02 4 client2
+14:02 12 client5 2
+14:33 4 client3
+14:33 12 client6 3
+19:00 11 client4
+19:00 11 client5
+19:00 11 client6
+19:30 1 client10
+19:30 13 NotOpenYet
+19:00
+1 100 09:06
+2 90 08:35
+3 100 08:30
